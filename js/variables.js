@@ -9,7 +9,8 @@ if ((usuario !="") && (usuario != null)) {
             buscarProducto()
 
                 // Buscamos y confirmamos si tenemos stock
-                resultado.compararStock() 
+                
+                compararStock() 
                         
             
 } else {

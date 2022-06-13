@@ -15,14 +15,7 @@ class Planta {
     }   
     productoVendido() {
         this.vendido = true;
-    }
-    compararStock () {
-        if (this.stock > 0) {
-            alert("Quedan disponibles "+ this.stock +" unidades. \nEl valor sin IVA es: " + this.valorBruto)
-        } else {
-            alert("No quedan disponibles unidades. Muchas gracias por tu interes")
-        }
-    }
+    }    
 
 }
 

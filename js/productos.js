@@ -36,9 +36,13 @@ function buscarProducto() {
     }
 }
 
-
-
-
+function compararStock() {
+    if (resultado.stock > 0) {
+        alert("Quedan disponibles "+ resultado.stock +" unidades. \nEl valor sin IVA es: " + resultado.valorBruto)
+    } else {
+        alert("No quedan disponibles unidades. Muchas gracias por tu interes")
+    }
+}
 
 const precioFinal = (a,b) => a + b
 
