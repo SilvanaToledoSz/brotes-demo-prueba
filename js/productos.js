@@ -20,6 +20,8 @@ let productoUnidades = 0
 let envioDom = 0
 let totalFinal = 0
 let productoElegido = 0
+let resultado = ""
+let comprar = false
 
 
 // otras funciones sobre el array de objetos
@@ -29,7 +31,7 @@ function buscarProducto() {
     let productoElegido = prompt("¿Cuál producto del catálogo te gustó")  
     if ((productoElegido !="") && (productoElegido != null)) {
        // Implementación de método find sobre el array plantas
-        let resultado = plantas.find (p => p.nombre === productoElegido.toUpperCase())
+        resultado = plantas.find (p => p.nombre === productoElegido.toUpperCase())
             console.table(resultado)
     }  else {
         alert("Ingrese un dato válido")
@@ -43,6 +45,32 @@ function compararStock() {
         alert("No quedan disponibles unidades. Muchas gracias por tu interes")
     }
 }
+
+function nroUnidades() {
+    // Pregunto cuántas unidades va a comprar
+    let productoUnidades = parseInt(prompt("¿Cuántas unidades querés comprar?"))
+        if ((productoUnidades <= resultado.stock)) {
+            resultado.precioUnidades = parseInt(resultado.valorBruto * productoUnidades)
+            //Informo precio total
+            alert(`El precio total por ${productoUnidades} unidades es $ ${resultado.precioUnidades}`)
+        } else {
+            alert("No contamos con esa cantidad")
+        }
+}
+
+//Cargo el producto vendido al carrito - Implementación de método filter sobre el array plantas
+
+function agregarCarrito() {
+    const carritoFinal = plantas.filter(p => p.vendido == true)
+    console.table(carritoFinal)
+}
+
+function sumarTodo() {
+    let totalFinal = carritoFinal.reduce( (totalizar, p) => totalizar + parseInt(p.precioUnidades), 0)
+    console.log(totalFinal)
+    // CIERRE DE COMPRA
+    alert(`CONFIRMACIÓN DE COMPRA: \nNombre: ${usuario} \nImporte Final: $ ${totalFinal} \n\n¡Muchas gracias, vuelva prontos!`)    
+} 
 
 const precioFinal = (a,b) => a + b
 
